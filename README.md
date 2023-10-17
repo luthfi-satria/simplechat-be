@@ -45,6 +45,9 @@ $ cd simplechat-be
 $ docker-compose up --build
 ```
 
+#### Notes:
+open mongoexpress then add database mongoapp
+
 ## Time Spent
 Actually, i spent build this backend service and front end application for 14 hours because i don't have knowledge to build chat application, and in 14 hours i used for learning and coding
 
