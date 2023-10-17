@@ -1,73 +1,80 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+## Date Submission
+October 17th, 2023
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Installation Instructor
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+### Manual Installation
 
-## Description
+1. Install MongoDB locally
+  - Go to [MongoDB Download Center](https://www.mongodb.com/download-center/community)
+  - You can follow complete step documentation here [mongodb installation step](https://www.geeksforgeeks.org/how-to-install-mongodb-on-windows/)
+  - create database mongoapp in your connection DB
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
+2.  Clone this repository
 
 ```bash
+# clone repository
+$ git clone https://github.com/luthfi-satria/simplechat-be.git
+
+# Go to directory
+$ cd simplechat-be
+
+# run npm install for download dependencies
 $ npm install
-```
+  ```
+3. Setup .env file  
+  - edit mongoDB connection host then save
 
-## Running the app
+4. Run server locally
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
+# start application in development mode
 $ npm run start:dev
-
-# production mode
-$ npm run start:prod
 ```
 
-## Test
 
+### Docker Installation
 ```bash
-# unit tests
-$ npm run test
+# clone repository
+$ git clone https://github.com/luthfi-satria/simplechat-be.git
 
-# e2e tests
-$ npm run test:e2e
+# Go to directory
+$ cd simplechat-be
 
-# test coverage
-$ npm run test:cov
+# run docker compose
+$ docker-compose up --build
 ```
 
-## Support
+## Time Spent
+Actually, i spent build this backend service and front end application for 14 hours because i don't have knowledge to build chat application, and in 14 hours i used for learning and coding
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## Assumptions Made
 
-## Stay in touch
+On this service, there are several assumption i have been made
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+1. Only simple validation inside
+2. No performance test or stressed test
+3. room name and username are case sensitive
+4. No deletion on chat documents after exiting chat room
 
-## License
+## Compromises Made
+1. Change localstorage usage with firebase for storing local data
+2. better improve error handler from server
+3. better add authorization header in every subscription calls
+3. better add more validation input, such as whitespace
 
-Nest is [MIT licensed](LICENSE).
+## If going to production
+1. Make sure this apps was successfully tested on development, minimum test method:
+  - Stressed test
+  - Integration test
+  - Unit Test
+
+2. Make sure scalability are fulfilled
+3. Adjust security in the cloud service
+
+
+## Feedback on this technical meeting
+1. If candidate not have experience build chat application, 
+  is it fair to be compare with your experience build chat application speed?
+
+2. Better give candidate generic test, which not take more time in technical meeting

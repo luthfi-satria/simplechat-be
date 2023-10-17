@@ -1,0 +1,58 @@
+version: '3'
+services:
+  simplechat:
+    container_name: simplechat
+    build:
+      context: .
+      dockerfile: .Dockerfile
+    volumes:
+      - ./src:/app/src
+    env_file: ./.env
+    ports:
+      - '3000:3000'
+    depends_on:
+      - mongodb
+    networks:
+      - mylocalnetwork
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    volumes:
+      - mongodata:/var/lib/mongo/data:rw
+    networks:
+      - mylocalnetwork
+  
+  mongo-express:
+    image: mongo-express:latest
+    container_name: mongo-express
+    restart: always
+    ports:
+      - 8075:8081
+    environment:
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongodb:27017/
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+      ME_CONFIG_BASICAUTH_USERNAME: admin
+      ME_CONFIG_BASICAUTH_PASSWORD: admin
+    volumes:
+      - mongoexpress:/var/lib/mongoexpress/data:rw
+    depends_on:
+      - mongodb
+    networks:
+      - mylocalnetwork
+
+networks: 
+    mylocalnetwork:
+        driver: bridge
+
+volumes:
+  mongodata:
+    driver: local
+  mongoexpress:
+    driver: local
